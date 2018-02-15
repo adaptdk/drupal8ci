@@ -10,19 +10,14 @@ RUN apt-get update && apt-get install -y \
   unzip \
   vim \
   wget \
-  zip \
-  bcmath \
-  pcntl \
+  libzip-dev \
   libpng-dev \
   && docker-php-ext-install mysqli \
   && docker-php-ext-install pdo \
-  && docker-php-ext-install pdo_mysql \
+  && docker-php-ext-install pdo_mysql\
   && docker-php-ext-install zip \
   && docker-php-ext-install bcmath \
-  && docker-php-ext-install pcntl \
-  && docker-php-ext-install gd \
-  && docker-php-ext-install imagick \
-  && sudo docker-php-ext-enable imagick
+  && docker-php-ext-install pcntl
 
 # Remove the vanilla Drupal project that comes with this image.
 RUN rm -rf ..?* .[!.]* *
